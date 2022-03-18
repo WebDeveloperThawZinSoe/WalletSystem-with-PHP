@@ -1,3 +1,3 @@
-## Payment System with PHP
+# Payment System with PHP
 
-# Version 1
+## Version 1
