@@ -89,6 +89,8 @@
                        $result2 = mysqli_query($connect,$sql2);
    
                        if($result && $result2){
+                           $sql = "INSERT INTO transaction(sender_id, reciver_id,ammount) VALUES ('$sender','$reciver','$ammount') ";
+                           mysqli_query($connect,$sql);
                            success_message("Transaction is Success","index.php");
                        }else{
                            error_message("Transaction is Fail","index.php");

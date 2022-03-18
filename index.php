@@ -54,6 +54,33 @@
                 </form>
             </div>
             <h5>Transaction History</h5>
+            <br>
+            <?php
+                $account = $_SESSION["username"];
+                $sql = "SELECT * FROM transaction WHERE sender_id = '$account' || reciver_id='$account' ORDER BY id DESC ";
+                $result = mysqli_query($connect,$sql);
+                if($result){
+                    foreach($result as $r){
+                        $send = $r['sender_id'];
+                        $recive = $r['reciver_id'];
+                        $amount = $r['ammount'];
+                        if($send == $account){
+                            ?>
+                             <p class="bg-danger bg-gradient" style="padding-top:10px;padding-bottom: 10px;text-align: center;color: white;">
+                                Send  <b>  <?php echo $amount ?> </b> To  <?php echo $recive ?>
+                             </p>
+                            <?php
+                        }else if($recive == $account){
+                            ?>
+                            <p class="bg-success bg-gradient" style="padding-top:10px;padding-bottom: 10px;text-align: center;color: white;">
+                            Recive  <b>  <?php echo $amount ?> </b> From  <?php echo $recive ?>
+                             </p>
+                            <?php
+                        }
+                 
+                    }
+                }
+            ?>
         </div>
     </div>
 
