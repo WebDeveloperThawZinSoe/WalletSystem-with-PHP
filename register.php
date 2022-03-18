@@ -22,6 +22,10 @@
 />
 </head>
 <body>
+  
+<?php
+      session_start();
+    ?>
     <!-- MDB -->
 <div class="container-container">
 <section class="vh-300" style="background-color: #508bfc;">
@@ -32,24 +36,27 @@
           <div class="card-body p-5 text-center">
 
             <h3 class="mb-5">Sign Up</h3>
-
+            <?php
+              include "alert.php";
+            ?>
+            <form action="backend.php" method="post">
             <div class="form-outline mb-4">
-              <input required type="text" id="typeEmailX-2" class="form-control form-control-lg" />
+              <input name="name" required type="text" id="typeEmailX-2" class="form-control form-control-lg" />
               <label class="form-label" for="typeEmailX-2">Display Name</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input required type="number" id="typeEmailX-2" class="form-control form-control-lg" />
+              <input name="phone" required type="number" id="typeEmailX-2" class="form-control form-control-lg" />
               <label class="form-label" for="typeEmailX-2">Number</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input required type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+              <input name="password" required type="password" id="typePasswordX-2" class="form-control form-control-lg" />
               <label class="form-label" for="typePasswordX-2">Password</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input required type="number" id="typePasswordX-2" class="form-control form-control-lg" />
+              <input name="pin" required type="number" id="typePasswordX-2" class="form-control form-control-lg" />
               <label class="form-label" for="typePasswordX-2">PIN Code</label>
             </div>
 
@@ -61,16 +68,16 @@
                 value=""
                 id="form1Example3"
               />
-              <label class="form-check-label" for="form1Example3"> Remember password </label>
+             
             </div>
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+            <button name="register" class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
 
             <hr class="my-4">
 
 
             <a href="login.php" class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;" type="submit">Sign In Account</a>
-
+            </form>
           </div>
         </div>
       </div>

@@ -24,6 +24,10 @@
 <body>
     <!-- MDB -->
 
+    <?php
+      session_start();
+    ?>
+
 <div class="container-container">
 <section class="vh-100" style="background-color: #508bfc;">
   <div class="container py-5 h-100">
@@ -33,14 +37,17 @@
           <div class="card-body p-5 text-center">
 
             <h3 class="mb-5">Sign in</h3>
-
+            <?php
+              include "alert.php";
+            ?>
+            <form action="backend.php" method="post">
             <div class="form-outline mb-4">
-              <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
-              <label class="form-label" for="typeEmailX-2">Email</label>
+              <input required name="phone" type="number" id="typeEmailX-2" class="form-control form-control-lg" />
+              <label class="form-label" for="typeEmailX-2">Phone</label>
             </div>
 
             <div class="form-outline mb-4">
-              <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
+              <input required name="password" type="password" id="typePasswordX-2" class="form-control form-control-lg" />
               <label class="form-label" for="typePasswordX-2">Password</label>
             </div>
 
@@ -55,8 +62,8 @@
               <label class="form-check-label" for="form1Example3"> Remember password </label>
             </div>
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-
+            <button name="login_btn" class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+            </form>
             <hr class="my-4">
 
 
