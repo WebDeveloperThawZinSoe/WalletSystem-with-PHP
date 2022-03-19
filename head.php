@@ -29,7 +29,7 @@
        header("Location: error.php");
    }
 
-  $page = $_SERVER['PHP_SELF'];
-  $sec = "15";
-  header("Refresh: $sec; url=$page");
+  // $page = $_SERVER['PHP_SELF'];
+  // $sec = "15";
+  // header("Refresh: $sec; url=$page");
 ?>

@@ -60,16 +60,7 @@
               <label class="form-label" for="typePasswordX-2">PIN Code</label>
             </div>
 
-            <!-- Checkbox -->
-            <div class="form-check d-flex justify-content-start mb-4">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="form1Example3"
-              />
-             
-            </div>
+
 
             <button name="register" class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
 

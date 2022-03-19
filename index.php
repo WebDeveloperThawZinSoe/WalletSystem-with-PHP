@@ -40,12 +40,23 @@
                     Deposit
                 </button>
                 <button type="button" style="margin-bottom: 30px;" class="  btn btn-outline-danger" data-mdb-toggle="modal"
-                    data-mdb-target="#withdraw" style="margin-bottom:20px">
+                    data-mdb-target="#withdraw" >
                     Widthdraw
                 </button>
             </div>
 
-            <hr>
+       
+
+             <!-- Button trigger modal -->
+             <div class="row" style="margin-left:30px;margin-right:30px">
+                <a  class="  btn btn-primary" style="margin-bottom:20px">
+                    Transaction History
+                 </a>
+              
+            </div>
+
+                 <hr>
+
 
 
 
