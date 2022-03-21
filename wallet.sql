@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2022 at 04:23 AM
+-- Generation Time: Mar 21, 2022 at 06:10 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -24,6 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `create_date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `balance`
 --
 
@@ -38,8 +52,8 @@ CREATE TABLE `balance` (
 --
 
 INSERT INTO `balance` (`id`, `customer_id`, `ammount`) VALUES
-(1, '09403077739', '0'),
-(2, '09251016448', '1500'),
+(1, '09403077739', '1000'),
+(2, '09251016448', '500'),
 (3, '123', '0');
 
 -- --------------------------------------------------------
@@ -69,6 +83,24 @@ INSERT INTO `customer` (`id`, `name`, `phone`, `password`, `pin`, `create_at`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `deposit`
+--
+
+CREATE TABLE `deposit` (
+  `id` int(11) NOT NULL,
+  `customer_id` varchar(225) NOT NULL,
+  `payment_method` varchar(255) NOT NULL,
+  `payment_ammount` varchar(255) NOT NULL,
+  `transaction_id` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `remark` text DEFAULT NULL,
+  `create_at` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transaction`
 --
 
@@ -92,11 +124,34 @@ INSERT INTO `transaction` (`id`, `sender_id`, `reciver_id`, `ammount`, `descript
 (4, '123', '09403077739', '500', '', '2022-03-19'),
 (5, '09403077739', '09251016448', '600', '', '2022-03-19'),
 (6, '09251016448', '09251016448', '600', '', '2022-03-19'),
-(7, '09403077739', '09251016448', '600', '', '2022-03-19');
+(7, '09403077739', '09251016448', '600', '', '2022-03-19'),
+(8, '09251016448', '09403077739', '1000', '', '2022-03-21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `widthdraw`
+--
+
+CREATE TABLE `widthdraw` (
+  `id` int(11) NOT NULL,
+  `customer_id` varchar(255) NOT NULL,
+  `widthdraw_phone` varchar(255) NOT NULL,
+  `widthdraw_name` varchar(255) NOT NULL,
+  `payment_ammount` varchar(255) NOT NULL,
+  `remark` text DEFAULT NULL,
+  `create_at` int(11) NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `balance`
@@ -111,14 +166,32 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `deposit`
+--
+ALTER TABLE `deposit`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `widthdraw`
+--
+ALTER TABLE `widthdraw`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `balance`
@@ -133,10 +206,22 @@ ALTER TABLE `customer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `deposit`
+--
+ALTER TABLE `deposit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `widthdraw`
+--
+ALTER TABLE `widthdraw`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

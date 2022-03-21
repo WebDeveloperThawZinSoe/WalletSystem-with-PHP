@@ -85,8 +85,9 @@
                                         <label class="form-label" for="form5Example1">Phone</label>
                                     </div>
 
-                                    <select style="width:100%;height: 35px;margin-bottom: 30px;" name="" id="" style="margin-bottom: 20px;">
-                                        <option selected  disabled>
+                                    <select style="width:100%;height: 35px;margin-bottom: 30px;" name="" id=""
+                                        style="margin-bottom: 20px;">
+                                        <option selected disabled>
                                             --- Select Payment Method ---
                                         </option>
                                         <option value="wave">Wave Money</option>
@@ -147,9 +148,10 @@
                                         <input type="text" id="form5Example1" class="form-control" />
                                         <label class="form-label" for="form5Example1">Name</label>
                                     </div>
-                                    
-                                    <select style="width:100%;height: 35px;margin-bottom: 30px;" name="" id="" style="margin-bottom: 20px;">
-                                        <option selected  disabled>
+
+                                    <select style="width:100%;height: 35px;margin-bottom: 30px;" name="" id=""
+                                        style="margin-bottom: 20px;">
+                                        <option selected disabled>
                                             --- Select Payment Method ---
                                         </option>
                                         <option value="wave">Wave Money</option>
@@ -187,7 +189,7 @@
 
 
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" id="transaction">
             <h5> <i class="fas fa-money-bill"></i> Transaction</h5>
             <div class="well">
                 <form action="backend.php" method="POST">
@@ -213,7 +215,10 @@
                     <hr>
                 </form>
             </div>
-            <h5><i class="fas fa-sync"></i> Transaction History</h5>
+           
+            <h5><i class="fas fa-sync"></i> Transaction History <button class="btn btn-primary" onclick="doIT()">Reload</button> </h5>  
+            
+           
             <br>
             <?php
                 $account = $_SESSION["username"];
@@ -246,6 +251,14 @@
             ?>
         </div>
     </div>
+
+    
+
+    <script>
+        function doIT() {
+          location.reload();
+        }
+    </script>
 
 </div>
 <?php
