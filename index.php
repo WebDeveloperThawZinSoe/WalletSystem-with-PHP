@@ -39,23 +39,23 @@
                     data-mdb-target="#deposit" style="margin-bottom:20px">
                     Deposit
                 </button>
-                <button type="button" style="margin-bottom: 30px;" class="  btn btn-outline-danger" data-mdb-toggle="modal"
-                    data-mdb-target="#withdraw" >
+                <button type="button" style="margin-bottom: 30px;" class="  btn btn-outline-danger"
+                    data-mdb-toggle="modal" data-mdb-target="#withdraw">
                     Widthdraw
                 </button>
             </div>
 
-       
 
-             <!-- Button trigger modal -->
-             <div class="row" style="margin-left:30px;margin-right:30px">
-                <a  class="  btn btn-primary" style="margin-bottom:20px">
+
+            <!-- Button trigger modal -->
+            <div class="row" style="margin-left:30px;margin-right:30px">
+                <a class="  btn btn-primary" style="margin-bottom:20px">
                     Transaction History
-                 </a>
-              
+                </a>
+
             </div>
 
-                 <hr>
+            <hr>
 
 
 
@@ -84,6 +84,15 @@
                                         <input type="number" id="form5Example1" class="form-control" />
                                         <label class="form-label" for="form5Example1">Phone</label>
                                     </div>
+
+                                    <select style="width:100%;height: 35px;margin-bottom: 30px;" name="" id="" style="margin-bottom: 20px;">
+                                        <option selected  disabled>
+                                            --- Select Payment Method ---
+                                        </option>
+                                        <option value="wave">Wave Money</option>
+                                        <option value="kbz">KBZ Pay</option>
+                                    </select>
+
 
                                     <!-- Amount input -->
                                     <div class="form-outline mb-4">
@@ -120,8 +129,8 @@
                 </div>
             </div>
 
-               <!-- Modal -->
-               <div class="modal fade" id="withdraw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <!-- Modal -->
+            <div class="modal fade" id="withdraw" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -138,6 +147,14 @@
                                         <input type="text" id="form5Example1" class="form-control" />
                                         <label class="form-label" for="form5Example1">Name</label>
                                     </div>
+                                    
+                                    <select style="width:100%;height: 35px;margin-bottom: 30px;" name="" id="" style="margin-bottom: 20px;">
+                                        <option selected  disabled>
+                                            --- Select Payment Method ---
+                                        </option>
+                                        <option value="wave">Wave Money</option>
+                                        <option value="kbz">KBZ Pay</option>
+                                    </select>
 
                                     <!-- Phone input -->
                                     <div class="form-outline mb-4">
