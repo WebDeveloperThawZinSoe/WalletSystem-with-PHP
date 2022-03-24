@@ -21,6 +21,9 @@
   <main style="margin-top: 58px">
     <div class="container pt-4">
       <!-- Section: Main chart -->
+      <?php
+        include_once "alert.php";
+      ?>
       <section class="mb-4">
         <div class="card">
           <div class="card-header py-3">

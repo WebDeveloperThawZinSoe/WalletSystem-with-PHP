@@ -4,7 +4,7 @@
           <a href="index.php" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
             <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
           </a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple ">
             <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic </span>
           </a>
           <a href="account.php" class="list-group-item list-group-item-action py-2 ripple"><i

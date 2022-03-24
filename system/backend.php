@@ -12,20 +12,19 @@
        $name = htmlspecialchars($_POST["name"]);
        $phone = htmlspecialchars($_POST["phone"]);
        $password = htmlspecialchars($_POST["password"]);
-       $pin = htmlspecialchars($_POST["pin"]);
+       
 
        $secure_password = crypt($password, "KBTC University"); // password , salt
        
-       $sql = "INSERT INTO customer(name,phone,password,pin) VALUES ('$name','$phone','$secure_password','$pin')";
+       $sql = "INSERT INTO admin(name,phone,password) VALUES ('$name','$phone','$secure_password')";
        
        $result = mysqli_query($connect, $sql);
        if($result){
-           $sql = "INSERT INTO balance(customer_id,ammount) VALUES ('$phone','500')";
-           mysqli_query($connect, $sql);
+          
            
-           success_message("Registration success","login.php");
+           success_message("Create Account Success","account.php");
        }else{
-           error_message("Registration Failure","register.php");
+           error_message("Create Account Failure","account.php");
        }
     }
 
