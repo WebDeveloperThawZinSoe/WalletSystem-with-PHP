@@ -19,3 +19,15 @@
 </head>
 
 <body>
+
+<?php
+   $connect = mysqli_connect("localhost","root","","wallet");
+   if(!$connect){
+       header("Location: error.php");
+   }
+
+   session_start();
+   if(!isset($_SESSION["system_username"]) && !isset($_SESSION["system_password"])){
+       header("location: login.php");
+   }
+?>

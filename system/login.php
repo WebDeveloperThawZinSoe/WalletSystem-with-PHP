@@ -38,7 +38,7 @@
 
             <h3 class="mb-5">Sign in</h3>
             <?php
-              include "alert.php";
+              include "../alert.php";
             ?>
             <form action="backend.php" method="post">
             <div class="form-outline mb-4">
@@ -64,11 +64,7 @@
 
             <button name="login_btn" class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
             </form>
-            <hr class="my-4">
-
-
-            <a href="register.php" class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;" type="submit">Sign up Account</a>
-
+           
           </div>
         </div>
       </div>

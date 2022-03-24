@@ -49,8 +49,8 @@
 
             <!-- Button trigger modal -->
             <div class="row" style="margin-left:30px;margin-right:30px">
-                <a class="  btn btn-primary" style="margin-bottom:20px">
-                    Transaction History
+                <a href="widthdraw_and_deposit_history.php" class="  btn btn-primary" style="margin-bottom:20px">
+                Widthdraw / Deposit History
                 </a>
 
             </div>
@@ -222,7 +222,7 @@
             <br>
             <?php
                 $account = $_SESSION["username"];
-                $sql = "SELECT * FROM transaction WHERE sender_id = '$account' || reciver_id='$account' ORDER BY id DESC ";
+                $sql = "SELECT * FROM transaction WHERE sender_id = '$account' || reciver_id='$account' ORDER BY id DESC LIMIT 25";
                 $result = mysqli_query($connect,$sql);
                 if($result){
                     foreach($result as $r){
@@ -249,8 +249,14 @@
                     }
                 }
             ?>
+            <hr class="my-4">
+               <p class="bg-primary bg-gradient"
+                style="padding-top:10px;padding-bottom: 10px;text-align: center;color: white;">
+                <a href="transaction_history.php" style="color: white;">View All Transaction History</a>  
+            </p>
         </div>
     </div>
+    <br> <br>
 
     
 
