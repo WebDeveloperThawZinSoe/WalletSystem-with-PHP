@@ -122,9 +122,19 @@
         $sql = "SELECT * FROM customer WHERE phone = '$phone' && password = '$secure_password'";
         $result = mysqli_query($connect, $sql);
         if(mysqli_num_rows($result) == 1){
-            $_SESSION["username"] = $phone;
-            $_SESSION["password"] = $secure_password;
-             success_message("Login Success","index.php");
+            foreach($result as $value){
+                $status = $value['status'];
+                if($status == 0){
+                    $_SESSION["username"] = $phone;
+                    $_SESSION["password"] = $secure_password;
+                    success_message("Login Success","index.php");
+                }else if($status == 1){
+                    error_message("Your Account Has Been Locked Connect to Customer Support Hot Line : 0999990119","login.php");
+                }else{
+                    error_message("Incorrect Username or Password","login.php");
+                }
+            }
+           
             
 
         }else{
