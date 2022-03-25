@@ -24,7 +24,7 @@
         include_once "alert.php";
       ?>
         <div class="card text-center">
-            <div class="card-header">Admin Account Create Form</div>
+            <div class="card-header">Admin Account Create Form <button class="btn btn-primary" onclick="doIT()">Reload</button> </div>
             <div class="card-body">
                 <div class="">
                     <!--- Admin Account Create -->
@@ -56,7 +56,7 @@
         <br>
 
         <div class="card">
-            <div class="card-header">Admin Account List</div>
+            <div class="card-header">Admin Account List <button class="btn btn-primary" onclick="doIT()">Reload</button></div>
             <div class="card-body">
                 <table id="example" class="mdl-data-table" style="width: 100%;padding: 0;margin: 0;">
                     <thead>
@@ -111,7 +111,7 @@
         <br> <br>
 
         <div class="card">
-            <div class="card-header">Customer Account List</div>
+            <div class="card-header">Customer Account List <button class="btn btn-primary" onclick="doIT()">Reload</button></div>
             <div class="card-body">
                 <table id="example2" class="mdl-data-table" style="width: 100%;padding: 0;margin: 0;">
                     <thead>
