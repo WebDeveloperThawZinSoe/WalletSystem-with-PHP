@@ -1,0 +1,126 @@
+// withdraw
+
+if(isset($_POST["withdrawbtn"])){
+
+    $name = htmlspecialchars($_POST["withname"]);
+    $method = htmlspecialchars($_POST["withmethod"]);
+    $phone = htmlspecialchars($_POST["withphone"]);
+    $amount = htmlspecialchars($_POST["withamount"]);
+    $remark = htmlspecialchars($_POST["withremark"]);
+    $user = $_SESSION["username"];
+
+    $sql1 = mysqli_query($connect, "SELECT * FROM customer WHERE phone = '$user'");
+    $id = "";
+    foreach($sql1 as $sql){
+        $id = $sql["id"];
+    }
+
+
+   
+  
+    if($sql1){
+
+        $sql = "SELECT * FROM customer WHERE phone='$user'"; // selecting row where database phone = input phone
+        $result1 = mysqli_query($connect,$sql);
+        if(mysqli_num_rows($result1)>0){
+             /* User Balance Find */ 
+                $sql = "SELECT * FROM balance WHERE customer_id='$user'"; // select Session's balance
+                $result2 = mysqli_query($connect,$sql);
+                if($result2){
+
+                    foreach($result2 as $r){
+
+                        /*user's current balance*/
+                        $remain_balance = $r['ammount']; //user's balance amount //$amount = amount input from index
+                        if($amount <= $remain_balance){
+                            $new_ammount_at_user = $remain_balance - $amount; //database amount - input amount
+
+                            $sql2 = "UPDATE balance SET ammount='$new_ammount_at_user' WHERE customer_id='$user' ";
+        
+                            $result2 = mysqli_query($connect,$sql2);
+
+                            if($result2){
+                            // $sql = "INSERT INTO transaction(sender_id, receiver_id,ammount) VALUES ('$sender','$reciver','$ammount') "; //input sender id, receiver id, ammount to transaction table
+                            // mysqli_query($connect,$sql);
+                            success_message("Withdraw Successful","index.php");
+
+                            $sql2 = "INSERT INTO widthdraw(customer_id,widthdraw_phone,widthdraw_name,payment_method,payment_ammount, remark) VALUES ('$id','$phone','$name','$method','$amount','$remark')";
+                            $result2 = mysqli_query($connect,$sql2);
+                   
+                           }
+                        }else{
+                            error_message("Input amount is higher than current amount","index.php");
+                           }
+
+                        }           
+                }
+         }else{
+            error_message("Invalid phone input","index.php");
+            }   
+    
+        }
+        
+}
+
+// deposit 
+
+
+/deposit/
+
+if(isset($_POST["depositbtn"])){
+    
+    $name = htmlspecialchars($_POST["depositname"]);
+    $method = htmlspecialchars($_POST["depositmethod"]);
+    $phone = htmlspecialchars($_POST["depositphone"]);
+    $amount = htmlspecialchars($_POST["depositamount"]);
+    $transaction = htmlspecialchars($_POST["transaction_id"]);
+    $image = $_FILES["depositimage"];
+    $remark = htmlspecialchars($_POST["depositremark"]);
+    $user = $_SESSION["username"];
+
+    $sql1 = mysqli_query($connect, "SELECT * FROM customer WHERE phone = '$user'");
+    $id = "";
+    foreach($sql1 as $sql){
+        $id = $sql["id"];
+    }
+
+    if($sql1){
+
+        $sql = "SELECT * FROM customer WHERE phone='$user'"; // selecting row where database phone = input phone
+        $result1 = mysqli_query($connect,$sql);
+        if(mysqli_num_rows($result1)>0){
+             /* User Balance Find */ 
+                $sql = "SELECT * FROM balance WHERE customer_id='$user'"; // select Session's balance
+                $result2 = mysqli_query($connect,$sql);
+                if($result2){
+
+                    foreach($result2 as $r){
+
+                        /*user's current balance*/
+                        $remain_balance = $r['ammount']; //user's balance amount //$amount = amount input from index
+                        if($remain_balance){
+                            $new_ammount_at_user = $remain_balance + $amount; //database amount + input amount
+
+                            $sql2 = "UPDATE balance SET ammount='$new_ammount_at_user' WHERE customer_id='$user' ";
+        
+                            $result2 = mysqli_query($connect,$sql2);
+
+                            if($result2){
+                            // $sql = "INSERT INTO transaction(sender_id, receiver_id,ammount) VALUES ('$sender','$reciver','$ammount') "; //input sender id, receiver id, ammount to transaction table
+                            // mysqli_query($connect,$sql);
+                            success_message("Deposit Successful","index.php");
+
+                            $sql = "INSERT INTO deposit(`customer_id`, `deposit_name`, `deposit_phone`, `payment_method`, `payment_ammount`, `transaction_id`, `image`, `remark`,) VALUES ('$id','  $name','$phone','$method','$amount','$transaction',' $image','$remark)";
+
+                            $result = mysqli_query($connect,$sql);
+                   
+                           }
+                        }
+
+                        }           
+                }
+         }  
+    
+        }
+
+}

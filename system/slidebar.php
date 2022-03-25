@@ -11,11 +11,11 @@
               class="fas fa-lock fa-fw me-3"></i><span>Account List</span></a>
           <a href="transaction.php" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-chart-line fa-fw me-3"></i><span>Transaction</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-            <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
+          <a href="withdraw.php" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-chart-pie fa-fw me-3"></i><span>Widthdraw</span>
           </a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
+          <a href="deposit.php" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-chart-bar fa-fw me-3"></i><span>Deposit</span></a>
           <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
           <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i

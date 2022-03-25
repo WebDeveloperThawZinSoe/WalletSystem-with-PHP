@@ -164,4 +164,61 @@
                 
             }
 
+    /* Deposits */
+    if(isset($_POST["withdrawbtn"])){
+
+    $name = htmlspecialchars($_POST["withname"]);
+    $method = htmlspecialchars($_POST["withmethod"]);
+    $phone = htmlspecialchars($_POST["withphone"]);
+    $amount = htmlspecialchars($_POST["withamount"]);
+    $user = $_SESSION["username"];
+
+
+    $result = mysqli_query($connect, "SELECT phone FROM customer WHERE phone = '$user'");
+    $id = "";
+    foreach($result as $result){
+        $id = $result["phone"];
+    }
+
+
+   
+  
+    if($result){
+
+        $sql = "SELECT id FROM customer WHERE phone='$user'"; 
+        // selecting row where database phone = input phone
+        $result1 = mysqli_query($connect,$sql);
+        if(mysqli_num_rows($result1)>0){
+             /* User Balance Find */ 
+                $sql = "SELECT * FROM balance WHERE customer_id='$user'"; // select Session's balance
+                $result2 = mysqli_query($connect,$sql);
+                if($result2){
+
+                    foreach($result2 as $r){
+
+                        /*user's current balance*/
+                        $remain_balance = $r['ammount']; //user's balance amount //$amount = amount input from index
+                        
+                        if($amount <= $remain_balance){
+                           
+                            $sql = "INSERT INTO widthdraw(customer_id,payment_method, widthdraw_phone,widthdraw_name, payment_ammount) VALUES ('$id','$method','$phone','$name','$amount')";
+
+                            $result = mysqli_query($connect,$sql);
+                            
+                            success_message("Withdraw Request Success .","index.php");
+                           
+                        }else{
+                            error_message("Input amount is higher than current amount","index.php");
+                        }
+
+                        }           
+                }
+         }else{
+            error_message("Invalid phone input","index.php");
+            }   
+    
+        }
+        
+}
+
 ?>

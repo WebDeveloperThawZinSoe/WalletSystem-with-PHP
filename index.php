@@ -143,13 +143,9 @@
                         <form action="backend.php" method="post">
                             <div class="modal-body">
                                 <form>
-                                    <!-- Name input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="text" id="form5Example1" class="form-control" />
-                                        <label class="form-label" for="form5Example1">Name</label>
-                                    </div>
+                                  
 
-                                    <select style="width:100%;height: 35px;margin-bottom: 30px;" name="" id=""
+                                    <select required style="width:100%;height: 35px;margin-bottom: 30px;" name="withmethod" id=""
                                         style="margin-bottom: 20px;">
                                         <option selected disabled>
                                             --- Select Payment Method ---
@@ -158,15 +154,21 @@
                                         <option value="kbz">KBZ Pay</option>
                                     </select>
 
+                                      <!-- Name input -->
+                                      <div class="form-outline mb-4">
+                                        <input required type="text" id="form5Example1" class="form-control" name="withname" />
+                                        <label class="form-label" for="form5Example1">Name</label>
+                                    </div>
+
                                     <!-- Phone input -->
                                     <div class="form-outline mb-4">
-                                        <input type="number" id="form5Example1" class="form-control" />
+                                        <input required name="withphone" type="number" id="form5Example1" class="form-control" />
                                         <label class="form-label" for="form5Example1">Phone</label>
                                     </div>
 
                                     <!-- Amount input -->
                                     <div class="form-outline mb-4">
-                                        <input type="number" id="form5Example2" class="form-control" />
+                                        <input required name="withamount" type="number" id="form5Example2" class="form-control" />
                                         <label class="form-label" for="form5Example2"> Amount </label>
                                     </div>
 
@@ -174,11 +176,11 @@
 
 
 
-                                </form>
+                                
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button type="submit" class="btn btn-primary" name="withdrawbtn">Save changes</button>
                             </div>
                         </form>
                     </div>

@@ -182,7 +182,7 @@
                         ?>
 
 
-                                    <p class="mb-0"> <a href="transaction.php">Transaction Count:</a> </p>
+                                    <p class="mb-0"> <a href="transaction.php">Transaction Count</a> </p>
                                 </div>
                             </div>
                         </div>
