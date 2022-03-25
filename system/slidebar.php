@@ -9,8 +9,8 @@
           </a>
           <a href="account.php" class="list-group-item list-group-item-action py-2 ripple"><i
               class="fas fa-lock fa-fw me-3"></i><span>Account List</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
+          <a href="transaction.php" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-chart-line fa-fw me-3"></i><span>Transaction</span></a>
           <a href="#" class="list-group-item list-group-item-action py-2 ripple">
             <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
           </a>

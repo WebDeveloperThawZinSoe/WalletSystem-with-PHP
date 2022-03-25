@@ -133,16 +133,27 @@
       <!--Section: Minimal statistics cards-->
       <section>
         <div class="row">
-          <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="col-xl-3 col-sm-6 col-12 mb-4">
             <div class="card">
               <div class="card-body">
                 <div class="d-flex justify-content-between px-md-1">
-                  <div class="align-self-center">
-                    <i class="fas fa-pencil-alt text-info fa-3x"></i>
+                  <div>
+                    <?php
+                      $sql = "SELECT id FROM customer";
+                      $result = mysqli_query($connect,$sql);
+                      if($result){
+                        $count = mysqli_num_rows($result);
+                        ?>
+<h3 class="text-success"><?php echo $count; ?></h3>
+                        <?php
+                      }
+                     
+                    ?>    
+                    
+                    <p class="mb-0"><a href="account.php#example2"> Our Clients </a></p>
                   </div>
-                  <div class="text-end">
-                    <h3>278</h3>
-                    <p class="mb-0">New Posts</p>
+                  <div class="align-self-center">
+                    <i class="far fa-user text-success fa-3x"></i>
                   </div>
                 </div>
               </div>
@@ -172,7 +183,7 @@
                   </div>
                   <div class="text-end">
                     <h3>64.89 %</h3>
-                    <p class="mb-0">Bounce Rate</p>
+                    <p class="mb-0">Transaction Amount:</p>
                   </div>
                 </div>
               </div>
@@ -257,22 +268,16 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="col-xl-3 col-sm-6 col-12 mb-4">
             <div class="card">
               <div class="card-body">
                 <div class="d-flex justify-content-between px-md-1">
                   <div>
-                    <h3 class="text-info">278</h3>
-                    <p class="mb-0">New Posts</p>
+                    <h3 class="text-success">156</h3>
+                    <p class="mb-0">New Clients</p>
                   </div>
                   <div class="align-self-center">
-                    <i class="fas fa-book-open text-info fa-3x"></i>
-                  </div>
-                </div>
-                <div class="px-md-1">
-                  <div class="progress mt-3 mb-1 rounded" style="height: 7px">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <i class="far fa-user text-success fa-3x"></i>
                   </div>
                 </div>
               </div>
