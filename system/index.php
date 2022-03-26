@@ -193,11 +193,23 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between px-md-1">
                                 <div class="align-self-center">
-                                    <i class="far fa-comment-alt text-warning fa-3x"></i>
+                              
+                                <i class="fas fa-arrow-circle-down fa-3x text-success"></i>
                                 </div>
                                 <div class="text-end">
-                                    <h3>156</h3>
-                                    <p class="mb-0">New Comments</p>
+                                <?php
+                      $sql = "SELECT id FROM deposit";
+                      $result = mysqli_query($connect,$sql);
+                      if($result){
+                        $count = mysqli_num_rows($result);
+                      
+                     
+                      ?>
+                                    <h3 class="text-success"><?php  echo $count ?></h3>
+                                    <?php
+                      }
+                        ?>
+                                    <p class="mb-0"> Deposit Count</p>
                                 </div>
                             </div>
                         </div>
@@ -208,11 +220,22 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between px-md-1">
                                 <div class="align-self-center">
-                                    <i class="fas fa-map-marker-alt text-danger fa-3x"></i>
+                                <i class="fas fa-arrow-circle-up fa-3x text-success"></i>
                                 </div>
                                 <div class="text-end">
-                                    <h3>423</h3>
-                                    <p class="mb-0">Total Visits</p>
+                                <?php
+                      $sql = "SELECT id FROM widthdraw";
+                      $result = mysqli_query($connect,$sql);
+                      if($result){
+                        $count = mysqli_num_rows($result);
+                      
+                     
+                      ?>
+                                    <h3 class="text-success"><?php  echo $count ?></h3>
+                                    <?php
+                      }
+                        ?>
+                                    <p class="mb-0"> Widthdraw Count</p>
                                 </div>
                             </div>
                         </div>
