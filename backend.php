@@ -219,6 +219,59 @@
     
         }
         
+    }
+
+/* deposit */
+ 
+if(isset($_POST["depositbtn"])){
+    
+    $deposit_code = "Deposit" . rand(0,1000);
+    $name = htmlspecialchars($_POST["depositname"]);
+    $method = htmlspecialchars($_POST["depositmethod"]);
+    $phone = htmlspecialchars($_POST["depositphone"]);
+    $amount = htmlspecialchars($_POST["depositamount"]);
+    $transaction = htmlspecialchars($_POST["transaction_id"]);
+    $image = image_filter($_FILES["depositimage"],"index.php");
+    $user = $_SESSION["username"];
+
+    $sql = "INSERT INTO deposit(deposit_code,customer_id,payment_method, payment_ammount,transaction_id,image) VALUES ('$deposit_code','$user','$method','$amount','$transaction','$unique_file_name')";
+    $result = mysqli_query($connect,$sql);
+
+    $sql2 = "INSERT INTO deposit_history(customer_id,deposit_code,status) VALUES ('$user','$deposit_code','0')";
+    $result2 = mysqli_query($connect,$sql2);
+    if($result && $result2){
+        
+            success_message("Deposit Request Success .","index.php");
+    }
+
 }
+
+/* Image Filter */
+function image_filter($image,$location){
+    $name = $image["name"];
+    $size = $image["size"];
+    $error = $image["error"];
+    $tmp_name = $image["tmp_name"];
+    $type = $image["type"];
+    $image_upload_location = "uploads/";
+    global $unique_file_name ;
+    $unique_file_name = rand(0,100) . "_" . $name;
+
+    if($error == 0){
+         if($size < 2000000){
+             if($type == "image/png" || $type=="image/jpg" || $type =="image/jpeg" || $type == "image/gif"){
+                move_uploaded_file($tmp_name , $image_upload_location . $unique_file_name);
+                return $unique_file_name;
+             }else{
+                 error_message("We only accept jpg png and gif",$location);
+             }
+         }else{
+             error_message("File is too big",$location);
+         }
+    }else{
+         error_message("File has error" , $location);
+    }
+
+ }
 
 ?>

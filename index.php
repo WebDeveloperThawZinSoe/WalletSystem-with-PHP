@@ -50,7 +50,7 @@
             <!-- Button trigger modal -->
             <div class="row" style="margin-left:30px;margin-right:30px">
                 <a href="widthdraw_and_deposit_history.php" class="  btn btn-primary" style="margin-bottom:20px">
-                Widthdraw / Deposit History
+                    Widthdraw / Deposit History
                 </a>
 
             </div>
@@ -70,22 +70,10 @@
                             <button type="button" class="btn-close" data-mdb-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
-                        <form action="backend.php" method="post">
+                        <form action="backend.php" method="post" enctype="multipart/form-data">
                             <div class="modal-body">
-                                <form>
-                                    <!-- Name input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="text" id="form5Example1" class="form-control" />
-                                        <label class="form-label" for="form5Example1">Name</label>
-                                    </div>
-
-                                    <!-- Phone input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="number" id="form5Example1" class="form-control" />
-                                        <label class="form-label" for="form5Example1">Phone</label>
-                                    </div>
-
-                                    <select style="width:100%;height: 35px;margin-bottom: 30px;" name="" id=""
+                               
+                                    <select required style="width:100%;height: 35px;margin-bottom: 30px;" name="depositmethod" id=""
                                         style="margin-bottom: 20px;">
                                         <option selected disabled>
                                             --- Select Payment Method ---
@@ -94,36 +82,50 @@
                                         <option value="kbz">KBZ Pay</option>
                                     </select>
 
+                                    <!-- Name input -->
+                                    <div class="form-outline mb-4">
+                                        <input required name="depositname" type="text" id="form5Example1" class="form-control" />
+                                        <label class="form-label" for="form5Example1">Account Holder Name</label>
+                                    </div>
+
+                                    <!-- Phone input -->
+                                    <div class="form-outline mb-4">
+                                        <input required name="depositphone" type="number" id="form5Example1" class="form-control" />
+                                        <label class="form-label" for="form5Example1">Phone</label>
+                                    </div>
+
+
 
                                     <!-- Amount input -->
                                     <div class="form-outline mb-4">
-                                        <input type="number" id="form5Example2" class="form-control" />
+                                        <input required name="depositamount" type="number" id="form5Example2" class="form-control" />
                                         <label class="form-label" for="form5Example2"> Amount </label>
                                     </div>
 
 
                                     <!-- Transaction input -->
                                     <div class="form-outline mb-4">
-                                        <input type="number" id="form5Example2" class="form-control" />
+                                        <input required name="transaction_id" type="number" id="form5Example2" class="form-control" />
                                         <label class="form-label" for="form5Example2"> Transaction ID </label>
                                     </div>
 
                                     <!-- Image input -->
                                     <div class="form-outline mb-4">
 
-                                        <input type="file" class="form-control" id="customFile" />
+                                        <input name="depositimage" type="file" required class="form-control" id="customFile" />
                                     </div>
 
+                                   
 
 
 
 
 
-                                </form>
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                <button name="depositbtn" type="submit" class="btn btn-primary">Save changes</button>
                             </div>
                         </form>
                     </div>
@@ -143,10 +145,10 @@
                         <form action="backend.php" method="post">
                             <div class="modal-body">
                                 <form>
-                                  
 
-                                    <select required style="width:100%;height: 35px;margin-bottom: 30px;" name="withmethod" id=""
-                                        style="margin-bottom: 20px;">
+
+                                    <select required style="width:100%;height: 35px;margin-bottom: 30px;"
+                                        name="withmethod" id="" style="margin-bottom: 20px;">
                                         <option selected disabled>
                                             --- Select Payment Method ---
                                         </option>
@@ -154,21 +156,24 @@
                                         <option value="kbz">KBZ Pay</option>
                                     </select>
 
-                                      <!-- Name input -->
-                                      <div class="form-outline mb-4">
-                                        <input required type="text" id="form5Example1" class="form-control" name="withname" />
+                                    <!-- Name input -->
+                                    <div class="form-outline mb-4">
+                                        <input required type="text" id="form5Example1" class="form-control"
+                                            name="withname" />
                                         <label class="form-label" for="form5Example1">Name</label>
                                     </div>
 
                                     <!-- Phone input -->
                                     <div class="form-outline mb-4">
-                                        <input required name="withphone" type="number" id="form5Example1" class="form-control" />
+                                        <input required name="withphone" type="number" id="form5Example1"
+                                            class="form-control" />
                                         <label class="form-label" for="form5Example1">Phone</label>
                                     </div>
 
                                     <!-- Amount input -->
                                     <div class="form-outline mb-4">
-                                        <input required name="withamount" type="number" id="form5Example2" class="form-control" />
+                                        <input required name="withamount" type="number" id="form5Example2"
+                                            class="form-control" />
                                         <label class="form-label" for="form5Example2"> Amount </label>
                                     </div>
 
@@ -176,7 +181,7 @@
 
 
 
-                                
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
@@ -217,10 +222,11 @@
                     <hr>
                 </form>
             </div>
-           
-            <h5><i class="fas fa-sync"></i> Transaction History <button class="btn btn-primary" onclick="doIT()">Reload</button> </h5>  
-            
-           
+
+            <h5><i class="fas fa-sync"></i> Transaction History <button class="btn btn-primary"
+                    onclick="doIT()">Reload</button> </h5>
+
+
             <br>
             <?php
                 $account = $_SESSION["username"];
@@ -252,20 +258,20 @@
                 }
             ?>
             <hr class="my-4">
-               <p class="bg-primary bg-gradient"
+            <p class="bg-primary bg-gradient"
                 style="padding-top:10px;padding-bottom: 10px;text-align: center;color: white;">
-                <a href="transaction_history.php" style="color: white;">View All Transaction History</a>  
+                <a href="transaction_history.php" style="color: white;">View All Transaction History</a>
             </p>
         </div>
     </div>
     <br> <br>
 
-    
+
 
     <script>
-        function doIT() {
-          location.reload();
-        }
+    function doIT() {
+        location.reload();
+    }
     </script>
 
 </div>
